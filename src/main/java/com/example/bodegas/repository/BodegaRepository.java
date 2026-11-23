@@ -8,8 +8,7 @@ import java.util.List;
 
 public interface BodegaRepository extends JpaRepository<Bodega, Long> {
 
-    // Carga los productos de cada bodega en una sola consulta (evita N+1)
-    @Override
+    // Trae los productos en la misma consulta
     @EntityGraph(attributePaths = "productos")
-    List<Bodega> findAll();
+    List<Bodega> findAllByOrderByIdAsc();
 }

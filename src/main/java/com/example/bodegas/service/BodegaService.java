@@ -28,7 +28,7 @@ public class BodegaService {
 
     @Transactional(readOnly = true)
     public List<BodegaResponse> listar() {
-        return bodegaRepository.findAll()
+        return bodegaRepository.findAllByOrderByIdAsc()
                 .stream()
                 .map(this::toResponse)
                 .toList();

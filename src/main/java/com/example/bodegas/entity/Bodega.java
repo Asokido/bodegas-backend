@@ -21,6 +21,7 @@ public class Bodega {
 
     // Lado "1" de la relación 1:N. mappedBy indica que la FK está en Producto.
     @OneToMany(mappedBy = "bodega", fetch = FetchType.LAZY)
+    @OrderBy("id ASC")
     private List<Producto> productos = new ArrayList<>();
 
     protected Bodega() {
